@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haksu <haksu@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 12:33:48 by haksu             #+#    #+#             */
-/*   Updated: 2022/03/31 12:47:44 by haksu            ###   ########.fr       */
+/*   Created: 2022/03/31 13:11:12 by haksu             #+#    #+#             */
+/*   Updated: 2022/03/31 13:13:50 by haksu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_print_numbers(void)
 {
-	char	let;
+	char	n;
 
-	let = 'a';
-	while (let <= 'z' )
+	n = '0';
+	while (n <= '9')
 	{
-		write(1, &let, 1);
-		let++;
+		write(1, &n, 1);
+		n++;
 	}
 }

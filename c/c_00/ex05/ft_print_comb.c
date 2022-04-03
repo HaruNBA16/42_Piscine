@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haksu <haksu@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 12:33:48 by haksu             #+#    #+#             */
-/*   Updated: 2022/03/31 12:47:44 by haksu            ###   ########.fr       */
+/*   Created: 2022/03/31 17:47:10 by haksu             #+#    #+#             */
+/*   Updated: 2022/03/31 17:50:53 by haksu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_print_comb(void)
 {
-	char	let;
+	int	a;
+	int	b;
+	int	c;
 
-	let = 'a';
-	while (let <= 'z' )
+	a = '0';
+	while (a <= '7')
 	{
-		write(1, &let, 1);
-		let++;
+		b = a + 1;
+		while (b <= '8')
+		{
+			c = b + 1;
+			while (c <= '9')
+			{
+				write (1, &a, 1);
+				write (1, &b, 1);
+				write (1, &c, 1);
+				if (a != '7')
+					write (1, ", ", 2);
+				c++;
+			}
+			b++;
+		}
+		a++;
 	}
 }

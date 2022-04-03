@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haksu <haksu@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 12:33:48 by haksu             #+#    #+#             */
-/*   Updated: 2022/03/31 12:47:44 by haksu            ###   ########.fr       */
+/*   Created: 2022/03/31 15:21:26 by haksu             #+#    #+#             */
+/*   Updated: 2022/03/31 16:41:46 by haksu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_is_negative(int n)
 {
-	char	let;
-
-	let = 'a';
-	while (let <= 'z' )
-	{
-		write(1, &let, 1);
-		let++;
-	}
+	if (n < 0)
+		write(1, "N", 1);
+	else
+		write(1, "P", 1);
 }

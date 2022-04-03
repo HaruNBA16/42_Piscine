@@ -1,25 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haksu <haksu@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 12:33:48 by haksu             #+#    #+#             */
-/*   Updated: 2022/03/31 12:47:44 by haksu            ###   ########.fr       */
+/*   Created: 2022/04/03 03:30:19 by haksu             #+#    #+#             */
+/*   Updated: 2022/04/03 08:47:49 by haksu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	putchar(char c)
 {
-	char	let;
+	write (1, &c, 1);
+}
 
-	let = 'a';
-	while (let <= 'z' )
+void	write_comb(int i)
+{
+	putchar(48 + i / 10);
+	putchar(48 + i % 10);
+}
+
+void	ft_print_comb2(void)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= 98)
 	{
-		write(1, &let, 1);
-		let++;
+		j = i + 1;
+		while (j <= 99)
+		{
+			write_comb(j);
+			putchar(' ');
+			write_comb(j);
+			if (i != 98 && j != 99)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			j++;
+		}
+		i++;
 	}
 }
+
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}
+
+
