@@ -1,57 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_write_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haksu <haksu@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 03:30:19 by haksu             #+#    #+#             */
-/*   Updated: 2022/04/03 08:47:49 by haksu            ###   ########.fr       */
+/*   Created: 2022/04/04 03:26:43 by haksu             #+#    #+#             */
+/*   Updated: 2022/04/04 03:48:05 by haksu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
-void	putchar(char c)
+void	ft_putchar(char c)
 {
 	write (1, &c, 1);
 }
 
-void	write_comb(int i)
+void	ft_write_comb(int a, int b, bool islast)
 {
-	putchar(48 + i / 10);
-	putchar(48 + i % 10);
+	ft_putchar(48 + a / 10);
+	ft_putchar(48 + a % 10);
+	ft_putchar(' ');
+	ft_putchar(48 + b / 10);
+	ft_putchar(48 + b % 10);
+	if (islast)
+	{
+		ft_putchar(',');
+		ft_putchar(' ');
+	}
 }
 
 void	ft_print_comb2(void)
 {
-	int	i;
-	int	j;
+	int		a;
+	int		b;
+	bool	islast;
 
-	i = 0;
-	while (i <= 98)
+	a = 0;
+	while (a <= 98)
 	{
-		j = i + 1;
-		while (j <= 99)
+		b = a + 1;
+		while (b <= 99)
 		{
-			write_comb(j);
-			putchar(' ');
-			write_comb(j);
-			if (i != 98 && j != 99)
-			{
-				putchar(',');
-				putchar(' ');
-			}
-			j++;
+			islast = !(a == 98 && b == 99);
+			ft_write_comb(a, b, islast);
+			b++;
 		}
-		i++;
+		a++;
 	}
 }
-
-int	main(void)
-{
-	ft_print_comb2();
-	return (0);
-}
-
-
